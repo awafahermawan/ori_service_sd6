@@ -1,0 +1,36 @@
+CREATE TABLE `col_sinkron_sales` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `kdtk` varchar(50) DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  `shift` varchar(50) DEFAULT NULL,
+  `nominal` int NOT NULL DEFAULT '0',
+  `addid` varchar(100) DEFAULT NULL,
+  `addtime` datetime DEFAULT NULL,
+  `version` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIX` (`kdtk`,`tanggal`,`shift`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `col_sinkron_sales_status` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `kdtk` varchar(10) DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `addid` varchar(50) DEFAULT NULL,
+  `addtime` datetime DEFAULT NULL,
+  `version` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIX` (`kdtk`,`tanggal`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `col_sinkron_sales_status_history` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `kdtk` varchar(10) DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `addid` varchar(50) DEFAULT NULL,
+  `addtime` datetime DEFAULT NULL,
+  `version` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIX` (`kdtk`,`tanggal`,`status`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
