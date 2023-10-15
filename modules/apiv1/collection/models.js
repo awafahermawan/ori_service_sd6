@@ -1,6 +1,6 @@
 const db = require("../../db")
 
-const insert = async(listData) => {
+const insert = async (listData) => {
     try {
         let sql = `replace into col_sinkron_sales values ?`
         await db.execute(sql, listData)
@@ -9,7 +9,7 @@ const insert = async(listData) => {
     }
 }
 
-const update = async(listData) => {
+const update = async (listData) => {
     try {
         let sql = `replace into col_sinkron_sales_status values ? `
         await db.execute(sql, listData)
@@ -18,7 +18,7 @@ const update = async(listData) => {
     }
 }
 
-const update_history = async(listData) => {
+const update_history = async (listData) => {
     try {
         try {
             let sql = `replace into col_sinkron_sales_status_history values ? `
@@ -31,6 +31,15 @@ const update_history = async(listData) => {
     }
 }
 
+const insertShift = async (listData) => {
+    try {
+        let sql = `replace into col_sinkron_sales_shift values ?`
+        await db.execute(sql, listData)
+    } catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
-    insert, update, update_history
+    insert, update, update_history, insertShift
 }
